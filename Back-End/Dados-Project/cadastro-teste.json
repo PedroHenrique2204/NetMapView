@@ -1,0 +1,22 @@
+{
+    "Ambientes": [
+        {
+        "nome": "João da Silva",
+        "email": "joao.silva@empresa.com",
+        "departamento": "TI",
+        "cargo": "Analista de Suporte",
+    
+       "filial": "Matriz São Paulo",    
+        "endereco": "Rua Central, 123 - Centro, SP",
+        "ponto_rede": "Rack 01 - Porta 08",
+    
+        "tipo_conexao": "Cabo",
+        "ssid": "TI-Corporativo",
+        "operadora": "Vivo Empresas",
+        "velocidade": "300 Mbps",
+    
+        "usuario": "jsilva",
+        "senha": "SenhaSegura123"
+        }
+    ]
+}
