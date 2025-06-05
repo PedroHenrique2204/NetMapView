@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #0057D9;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* INTRO e CONTACT */
+.intro,
+.contact {
+  flex: 1;
+  min-width: 300px;
+  background-color: #ffffff;
+  border-left: 4px solid #0057D9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.intro h2,
+.contact h2 {
+  font-size: 1.25rem; /* 20px */
+  color: #0057D9;
+  margin-bottom: 10px;
+}
+
+.intro p,
+.contact p {
+  color: #1a1a1a;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* INFO SECTIONS */
+.info-sections {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px auto;
+  max-width: 1000px;
+  flex-wrap: wrap;
+}
+
+/* FORM SECTION */
+.form-section {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+/* HOVER CARD */
+.host-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer {
+  background-color: #0057D9;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: white;
+}
