@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Cadastro - NetMapView</title>
     <link rel="stylesheet" href="../Estilizar-Project/cadastro.css" />
 </head>
@@ -12,41 +12,57 @@
         <div class="main-card">
             <div class="card-content">
                 <div class="text-section">
-                    <h1>Cadastro Corporativo</h1>
+                    <h1>Cadastro de Usuário</h1>
                     <p>Preencha as informações abaixo:</p>
 
-                    <!-- Formulário único agrupando todos os campos -->
-                    <form class="cadastro-form" action="#" method="POST">
-                        <h2>Informações do Usuário ou Técnico</h2>
-                        <input type="text" name="nome" placeholder="Nome Completo" required>
-                        <input type="email" name="email" placeholder="E-mail Corporativo" required>
-                        <input type="text" name="departamento" placeholder="Departamento ou Setor" required>
-                        <input type="text" name="cargo" placeholder="Cargo ou Função" required>
-
-                        <h2>Dados do Local ou Ponto de Rede</h2>
-                        <input type="text" name="filial" placeholder="Nome da Unidade ou Filial" required>
-                        <input type="text" name="endereco" placeholder="Endereço ou Localização Física" required>
-                        <input type="text" name="ponto_rede" placeholder="Identificação do Ponto de Rede" required>
-
-                        <h2>Dados da Conexão de Rede</h2>
-                        <input type="text" name="tipo_conexao" placeholder="Tipo de Conexão" required>
-                        <input type="text" name="ssid" placeholder="Nome da Rede (SSID)" required>
-                        <input type="text" name="operadora" placeholder="Operadora">
-                        <input type="text" name="velocidade" placeholder="Velocidade Contratada" required>
-
-                        <h2>Autenticação</h2>
-                        <input type="text" name="usuario" placeholder="Nome de Usuário" required>
-                        <input type="password" name="senha" placeholder="Senha" required>
-
-                        <div class="button-container">
-                            <button type="submit">Próximo</button>
-                        </div>
+                    <form id="userForm">
+                        <input type="text" id="userName" placeholder="Nome Completo" required>
+                        <input type="email" id="userEmail" placeholder="E-mail" required>
+                        <input type="text" id="userUsername" placeholder="Usuário" required>
+                        <input type="password" id="userPassword" placeholder="Senha" required>
+                        <button type="submit">Cadastrar</button>
                     </form>
+
+                    <div id="usersList" class="row"></div>
 
                 </div>
             </div>
         </div>
     </main>
 </div>
+
+<script>
+    const server = 'http://localhost:4000'; // ajuste conforme o seu backend
+
+    document.getElementById('userForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const novoUsuario = {
+            nome: document.getElementById('userName').value.trim(),
+            email: document.getElementById('userEmail').value.trim(),
+            usuario: document.getElementById('userUsername').value.trim(),
+            senha: document.getElementById('userPassword').value.trim()
+        };
+
+        fetch(`${server}/users`, {  // ajuste aqui: /users ou /usuarios conforme seu backend
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(novoUsuario)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Usuário cadastrado com sucesso!');
+                document.getElementById('userForm').reset();
+            } else {
+                alert('Erro ao cadastrar usuário.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao comunicar com o servidor.');
+        });
+    });
+</script>
+
 </body>
 </html>
