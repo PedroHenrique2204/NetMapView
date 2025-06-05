@@ -1,0 +1,39 @@
+@server = http://localhost:3000
+@createdHostId = {{createHost.response.body.$.id}}
+
+### create a host
+# @name createHost
+
+POST {{server}}/hosts
+Content-Type: application/json
+
+{
+  "name": "Google DNS",
+  "ip": "8.8.8.8",
+  "description": "Servidor de DNS do Google",
+  "status": true
+}
+
+### list hosts
+
+GET {{server}}/hosts
+
+### show a host
+
+GET {{server}}/hosts/{{createdHostId}}
+
+
+### update a host
+
+PUT {{server}}/hosts/{{createdHostId}}
+Content-Type: application/json
+
+{
+  "name": "Google DNS",
+  "ip": "8.8.8.8",
+  "description": "Servidor de DNS público do Google",
+  "status": true
+}
+
+### delete a host
+DELETE {{server}}/hosts/{{createdHostId}}
