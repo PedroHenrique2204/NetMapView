@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - NetMapView</title>
+    <link rel="stylesheet" href="../Estilizar-Project/cadastro.css" />
+</head>
+<body>
+<div class="layout">
+    <main>
+        <div class="main-card">
+            <div class="card-content">
+                <div class="text-section">
+                    <h1>Cadastro Corporativo</h1>
+                    <p>Preencha as informações abaixo:</p>
+
+                    <!-- Formulário único agrupando todos os campos -->
+                    <form class="cadastro-form" action="#" method="POST">
+                        <h2>Informações do Usuário ou Técnico</h2>
+                        <input type="text" name="nome" placeholder="Nome Completo" required>
+                        <input type="email" name="email" placeholder="E-mail Corporativo" required>
+                        <input type="text" name="departamento" placeholder="Departamento ou Setor" required>
+                        <input type="text" name="cargo" placeholder="Cargo ou Função" required>
+
+                        <h2>Dados do Local ou Ponto de Rede</h2>
+                        <input type="text" name="filial" placeholder="Nome da Unidade ou Filial" required>
+                        <input type="text" name="endereco" placeholder="Endereço ou Localização Física" required>
+                        <input type="text" name="ponto_rede" placeholder="Identificação do Ponto de Rede" required>
+
+                        <h2>Dados da Conexão de Rede</h2>
+                        <input type="text" name="tipo_conexao" placeholder="Tipo de Conexão" required>
+                        <input type="text" name="ssid" placeholder="Nome da Rede (SSID)" required>
+                        <input type="text" name="operadora" placeholder="Operadora">
+                        <input type="text" name="velocidade" placeholder="Velocidade Contratada" required>
+
+                        <h2>Autenticação</h2>
+                        <input type="text" name="usuario" placeholder="Nome de Usuário" required>
+                        <input type="password" name="senha" placeholder="Senha" required>
+
+                        <div class="button-container">
+                            <button type="submit">Próximo</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
