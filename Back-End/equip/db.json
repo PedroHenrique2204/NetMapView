@@ -1,0 +1,31 @@
+{
+  "hosts": [
+    {
+      "id": "4ceb",
+      "name": "pc1",
+      "ip": "4.4.4.4",
+      "type": "Computador",
+      "location": "lab2",
+      "status": true,
+      "description": "32qedqw"
+    },
+    {
+      "id": "ed59",
+      "name": "teste para amanha",
+      "ip": "1.1.1.1",
+      "type": "Computador",
+      "location": "LAB8",
+      "status": false,
+      "description": "oiiii"
+    },
+    {
+      "id": "53c0",
+      "name": "2121",
+      "ip": "192.168.234.235",
+      "type": "Switch",
+      "location": "LAB8",
+      "status": true,
+      "description": "qwe"
+    }
+  ]
+}
