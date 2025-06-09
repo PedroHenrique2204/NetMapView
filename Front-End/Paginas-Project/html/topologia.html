@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulador de Topologia de Rede</title>
+  <link rel="stylesheet" href="../../Estilizar-Project/topologia.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h3>Dispositivos</h3>
+    <div class="icone" draggable="true" id="computador">
+      <img src="../../Imagens-Project/Computador.png" alt="Computador" />
+      <span>Computador</span>
+    </div>
+    <div class="icone" draggable="true" id="switch">
+      <img src="../../Imagens-Project/Switch.png" alt="Switch" />
+      <span>Switch</span>
+    </div>
+    <div class="icone" draggable="true" id="roteador">
+      <img src="../../Imagens-Project/Roteador.png" alt="Roteador" />
+      <span>Roteador</span>
+    </div>
+  </div>
+
+  <div class="conteudo">
+    <h2>Montagem da Topologia</h2>
+    <div class="area-fixa sala" id="salaMontagem">
+      <svg id="conexoes" width="100%" height="100%"></svg>
+    </div>
+
+    <h2>Teste de Rede</h2>
+    <div class="area-fixa testeRede" id="testeRede">
+      <div id="saidaTeste">Carregando hosts...</div>
+    </div>
+
+    <div class="button-testederede">
+      <button id="btnAtualizarHosts">Atualizar Lista de Hosts</button>
+    </div>
+  </div>
+
+  <script src="../../../Back-End/scripts/topologia.js"></script>
+  <script src="../../../Back-End/scripts/testederede.js"></script>
+</body>
+</html>
