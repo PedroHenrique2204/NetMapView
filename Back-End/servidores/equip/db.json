@@ -1,31 +1,16 @@
-{
-  "hosts": [
-    {
-      "id": "4ceb",
-      "name": "pc1",
-      "ip": "4.4.4.4",
-      "type": "Computador",
-      "location": "lab2",
-      "status": true,
-      "description": "32qedqw"
-    },
-    {
-      "id": "ed59",
-      "name": "teste para amanha",
-      "ip": "1.1.1.1",
-      "type": "Computador",
-      "location": "LAB8",
-      "status": false,
-      "description": "oiiii"
-    },
-    {
-      "id": "53c0",
-      "name": "2121",
-      "ip": "192.168.234.235",
-      "type": "Switch",
-      "location": "LAB8",
-      "status": true,
-      "description": "qwe"
-    }
-  ]
-}
+-- Criar a tabela 'hosts'
+CREATE TABLE hosts (
+    id VARCHAR(10) PRIMARY KEY,
+    name VARCHAR(100),
+    ip VARCHAR(15),
+    type VARCHAR(50),
+    location VARCHAR(50),
+    status BOOLEAN,
+    description TEXT
+);
+
+-- Inserir os dados
+INSERT INTO hosts (id, name, ip, type, location, status, description) VALUES
+('4ceb', 'pc1', '4.4.4.4', 'Computador', 'lab2', TRUE, '32qedqw'),
+('ed59', 'teste para amanha', '1.1.1.1', 'Computador', 'LAB8', FALSE, 'oiiii'),
+('53c0', '2121', '192.168.234.235', 'Switch', 'LAB8', TRUE, 'qwe');
