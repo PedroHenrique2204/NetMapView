@@ -69,6 +69,24 @@
       color: #333;
       margin-top: 40px;
     }
+
+    .online-badge {
+      background-color: #198754;
+      color: #fff;
+      padding: 0.4em 0.7em;
+      border-radius: 0.5em;
+      font-size: 0.95em;
+      margin-right: 5px;
+    }
+
+    .offline-badge {
+      background-color: #dc3545;
+      color: #fff;
+      padding: 0.4em 0.7em;
+      border-radius: 0.5em;
+      font-size: 0.95em;
+      margin-right: 5px;
+    }
   </style>
 </head>
 
@@ -174,7 +192,7 @@
     const server = 'http://localhost:3000'; // Ajuste conforme seu backend
 
     function renderHostCard(host) {
-      const statusBadge = host.status ? 'bg-success' : 'bg-danger';
+      const statusClass = host.status ? 'online-badge' : 'offline-badge';
       const statusText = host.status ? 'Online' : 'Offline';
 
       const card = document.createElement('div');
@@ -185,11 +203,11 @@
         <div class="card mb-3">
           <div class="card-body">
             <h5 class="card-title">${host.name}</h5>
-            <p class="card-text">IP: ${host.ip}</p>
-            <p class="card-text">
-              <span class="badge ${statusBadge}">${statusText}</span>
-            </p>
-            <div class="d-flex justify-content-end gap-2">
+            <p class="card-text"><strong>IP:</strong> ${host.ip}</p>
+            <p class="card-text"><strong>Local:</strong> ${host.location}</p>
+            <p class="card-text"><strong>Descrição:</strong> ${host.description || 'Sem descrição'}</p>
+            <span class="${statusClass}">${statusText}</span>
+            <div class="d-flex justify-content-end gap-2 mt-2">
               <button class="btn btn-outline-danger btn-sm" onclick="deleteHost('${host.id}')">
                 <i class="bi bi-trash"></i> Apagar
               </button>
