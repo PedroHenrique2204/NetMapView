@@ -7,6 +7,28 @@ generator client {
   provider = "prisma-client-js"
 }
 
+/**
+ * Quem usa o sistema
+ */
+model User {
+  id           Int         @id @default(autoincrement())
+  email        String      @unique
+  username     String?      @unique
+  passwordHash String
+  name         String?
+  role         Role        @default(USER)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  // relações
+  devices      Device[]
+  sessions     Session[]
+  loginEvents  LoginEvent[]
+}
+
+/**
+ * Equipamentos
+ */
 model Device {
   id          Int      @id @default(autoincrement())
   name        String
@@ -16,4 +38,42 @@ model Device {
   status      Boolean
   description String?
   createdAt   DateTime @default(now())
+
+  // dono opcional (não quebra dados existentes)
+  ownerId Int?
+  owner   User? @relation(fields: [ownerId], references: [id], onDelete: SetNull)
 }
+
+/**
+ * Sessões persistidas (se quiser manter login no DB)
+ */
+model Session {
+  id        String   @id @default(cuid())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+/**
+ * Log de tentativas de login (opcional, mas útil para auditoria)
+ */
+model LoginEvent {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  success   Boolean
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+

@@ -42,8 +42,7 @@
             <h1>NetMapView</h1>
             <p>Garanta a máxima eficiência da sua rede com análises contínuas de qualidade.</p>
             <p>Monitoramento confiável, do centro ao ponto mais remoto da sua operação.</p>
-            <div class="button-container">
-              <a href="C_equipamentos.html" class="botao">Painel de acesso</a>
+            <div class="button-container">          
               <a href="cadastro.html" class="botao" id="cadastrar-btn">Cadastrar-se</a>
             </div>
           </div>
@@ -76,7 +75,37 @@
   <footer>
     <p>© 2025 NetMapView</p>
   </footer>
-  <script src="../js/main.js"></script>
+  <script>
+    // Ajuste a URL do backend conforme sua porta
+    const server = 'http://localhost:3000';
+
+    const loginForm = document.querySelector('.login-form');
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = loginForm.querySelector('input[type="email"]').value.trim();
+      const senha = loginForm.querySelector('input[type="password"]').value.trim();
+
+      try {
+        const res = await fetch(`${server}/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, senha })
+        });
+
+        const data = await res.json();
+
+        if (data.ok) {
+          window.location.href = 'C_equipamentos.html';
+        } else {
+          alert(data.error || 'E-mail ou senha incorretos.');
+        }
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao conectar com o servidor.');
+      }
+    });
+  </script>
 
 </body>
 </html>
